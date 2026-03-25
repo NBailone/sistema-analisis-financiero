@@ -1,4 +1,4 @@
-# Sistema de Análisis de Mercados Financieros
+# Sistema de Análisis Financieros
 
 Aplicación web orientada al análisis de mercados financieros, que integra datos en tiempo real, históricos e indicadores técnicos para asistir en la toma de decisiones de inversión.
 
