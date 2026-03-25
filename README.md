@@ -119,8 +119,3 @@ Por este motivo, el proyecto no se encuentra listo para ejecución directa sin c
 
 ---
 
-## 👨‍💻 Autor
-
-Nicolás Bailone  
-Ingeniero en Sistemas de Información
-
