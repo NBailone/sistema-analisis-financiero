@@ -1,0 +1,304 @@
+/*---------------------HEADER-----------------------------------------------------------------------------------------*/
+
+
+header .my-nav{background-color: #2f312e;}/*COLOR DE FONDO NAVBAR*/
+header .my-nav .navbar-brand{margin-left: 02%; color: #f3ed17;}/*LE DOY UN MARGEN A NB ELECTRONICA Y COLOR*/
+header .my-nav .navbar-brand:hover{color: white;}/*COLOR DE NB ELECTRONICA CUANDO PASO CON EL MOUSE*/
+header .my-nav .nav-link{color: grey;}/*COLOR DEL MENU CUANDO NO ESTA ACTIVO*/
+header .my-nav .nav-link:hover{color: white;}/*COLOR DEL MENU CUANDO PASO CON EL MOUSE*/
+header .my-nav .active{color: white;} /*COLOR DEL MENU CUANDO ESTA SELECCIONADO*/
+header .my-nav .fa-battle-net{margin-right: 06%;}/*LE DOY MARGEN ENTRE EL ICONO Y NB ELECTRONICA*/
+
+
+/*Agrego el botón del navbar porque al editar los colores se oculta*/
+.custom-toggler.navbar-toggler{border-color: white;}
+.custom-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,0, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+
+/*Separo un poco los botones del menu*/
+header  .home .navbar-nav{margin-left:  2.5%;} 
+
+header .login .navbar-nav{margin-left: 1.4%;}
+
+header .admin .navbar-nav{margin-left: 4.5%;}
+
+/*Le doy color a los items del dropdowm Productos cuando pasa el mouse por arriba*/
+.dropdown-item:hover{
+	background-color: #2f312e;
+	color: #f3ed17;
+}	
+
+/*-----------------FIN HEADER-----------------------------------------------------------------------------------------*/
+
+
+/*-----------------CARTEL TIPO ACTIVO FINANCIERO----------------------------------------------------------------------*/
+
+.cartel{
+	
+	border-bottom-right-radius: 15px;
+	border-bottom-left-radius: 15px;
+	background-color: black;
+        width: 350px;
+}
+.cartel .h1{
+	font-weight: lighter;
+        font-size: 30px;
+        padding-top: 4%;    
+        color: #f3ed17;
+        margin-bottom: 10px;
+}
+
+
+/*-----------------FIN CARTEL TIPO ACTIVO FINANCIERO----------------------------------------------------------------------*/
+
+
+/*-----------------CAROUSEL------------------------------------------------------------------------------------------*/
+
+
+/*Subo el carousel contra el navbar y defino el ancho*/
+ .carousel-1{margin-top: 0px;
+ 	margin-left: 5%;
+ 	margin-right: 5%;
+ }
+
+
+/*-----------------FIN CAROUSEL--------------------------------------------------------------------------------------*/
+
+
+
+
+
+/*-----------------BARRA SEPARADORA-----------------------------------------------------------------------------------*/
+.breadcrumb{
+	background-color:  #2f312e;
+	margin-left: 4.8%;
+	margin-right: 4.8%;	
+	margin-top: 2%;
+	margin-bottom: 35px;
+	display: block;
+        text-align: center;
+        border-radius: 45px;
+}
+
+.breadcrumb h3{
+    color: white;
+    	font-weight: lighter;
+       
+}
+.breadcrumb h3:hover{color: white;}
+
+/*-----------------FIN BARRA NOVEDADES-----------------------------------------------------------------------------------*/
+
+
+
+
+/*-----------------ACTIVOS FINANCIEROS ---------------------------------------------------------------------------------------------*/
+
+
+
+
+
+/*LE DOY FORMA Y COLOR AL CONTENEDOR DEL PRODUCTO*/
+.productos .card{							
+	background-color: #2f312e;
+	border-width: 6px;
+	border-radius: 5px;
+}
+
+/*LE SACO LOS MARGENES AL CONTENEDOR DE TODOS LOS PRODUCTOS*/
+.productos .album .row{
+	margin-right: 0px;
+	margin-left: 0px;
+	
+}
+
+.productos .album{
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+}
+.productos .card-body h6{color: white;
+	height: 65px;} /*LE DOY COLOR AL NOMBRE DEL PRODUCTO Y TAMAÑO*/
+.productos .card-body p{color: white;} /*LE DOY COLOR AL PRECIO*/
+
+/*LE DOY COLOR AL PRODUCTO RESALTADO*/
+.productos .coll:hover .card-body{
+	box-shadow: 0 3px 5px 0 rgba(255,233, 0, 1), 0 8px 15px 0 rgba(255, 255, 0, 1);
+	border-radius: 5px;
+	margin-bottom: 0px ;
+}
+/*LE DOY COLOR AL NOMBRE DEL PRODUCTO RESALTADO */
+.productos .coll:hover .card-body h6{
+	color: #f3ed17;
+	text-decoration: underline #2f312e;/*SACO EL SUBRRAYADO, POR DEFECTO ME HACE UNO EN COLOR AZUL*/
+}
+
+.productos .card-body h6{
+	font-weight: lighter;
+	font-style: italic;
+        font-size: 30px;
+        padding-top: 5%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;        
+}
+
+/*LE DOY MARGEN AL CONTENEDOR DE LOS PRODUCTOS*/
+.productos .cont-novedades{
+	padding-right: 3.7%;
+	padding-left: 3.7%;
+}
+
+
+/*EDITO EL BOTÓN AGREGAR AL CARRITO*/
+.productos .card-body .fa-cart-plus{
+	font-size: 140%;
+	width: 30px;
+	color: #f3ed17;
+}
+/*EDITO EL BOTÓN AGREGAR*/
+.productos .card-body .btn{
+	color: #f3ed17;
+	border-color: grey;
+	  }
+
+.productos .card-body .btn:hover{
+	background-color: grey;
+	color: #f3ed17;
+}
+/*EDITO EL BOTÓN ELIMINAR*/
+.productos .card-body .btnEliminar{
+	color: #f3ed17;
+	border-color: grey;
+	  }
+
+.productos .card-body .btnEliminar:hover{
+	background-color: black;
+	color: red;
+}
+/*ALTO DE LA IMAGEN, PARA QUE AL PONER DE DISTINTO FORMATO NO CAMBIE*/
+.productos .img-articulo{
+height: 235px;
+}
+
+.productos  .sinProductos{
+
+    margin-top: 5%;
+    margin-bottom: 5%;
+    font-weight: lighter;
+    font-style: italic;
+    
+}
+.card-body {
+    padding-left: 1px;
+    padding-right: 1px;
+}
+
+/*--------------FIN ACTIVOS FINANCIEROS -------------------------------------------------------------------------------------------*/
+
+
+
+
+/*--------------FOOTER--------------------------------------------------------------------------------------------------*/
+
+.footer p{
+        margin-top: 4px;
+	margin-bottom: 0px;
+	color: white;
+        font-size: 14px;
+}
+/*LE DOY MARGEN A LA IMAGEN PARA QUE ME QUEDDE CENTRADA*/
+.footer img{margin-left: 60px;}
+
+
+/*--------------FIN FOOTER----------------------------------------------------------------------------------------------*/
+
+body {
+	background-color: #e0e0e0;
+	}
+
+/*--------------JUSTGAGE----------------------------------------------------------------------------------------------*/
+    .wrapper {
+      position: relative;
+      width: 100%;
+      height: 140px;
+    }
+
+    .box {
+      width: 100%;
+    }
+
+    .container {
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .gauge {
+      width: 100%;
+      height: 150px;
+    }
+
+    .flexbox {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .flexbox>div {
+      flex: 1 0 300px;
+    }
+/*--------------JUSTGAGE----------------------------------------------------------------------------------------------*/
+
+/*--------------ESTILO DE LOS GRAFICOS DE LINEA Y VELAS---------------------------------------------------------------------------------*/
+    .chartBox {
+        padding: 20px;
+        border-radius: 20px;
+        border: solid 3px black;
+        background: white;
+      }
+/*--------------FIN ESTILO DE LOS GRAFICOS---------------------------------------------------------------------------------*/
+
+/*--------------ESTILO GRAFICO PIE---------------------------------------------------------------------------------*/
+    .pie {
+        padding: 0px;
+        padding-bottom: 15px;
+        border-radius: 20px;
+        border: solid 3px black;
+        background: white;
+        max-height: 300px;
+      }
+      
+      .can {
+          max-height: 250px;
+      }  
+/*--------------FIN ESTILO DE LOS GRAFICOS---------------------------------------------------------------------------------*/
+
+/*--------------ESTILO MANUALES DE USO---------------------------------------------------------------------------------*/
+    .accordion{
+        margin-left: 7%;
+        margin-right: 7%;
+        margin-bottom: 50px;
+    }
+    
+    .accordion .card-header{
+        background-color: #343a40;
+    }
+
+    .accordion .btn-link{
+        color: #f3ed17;
+    }
+    .accordion .card-body p{
+        margin-bottom: 0px;
+    }
+    
+    
+.foto{
+	padding-top: 0px;
+
+	border-radius: 10px;
+	background-color: #2f312e;
+	max-height: 700px;
+}
+/*--------------FIN ESTILO MANUALES DE USO---------------------------------------------------------------------------------*/
+
+
+
