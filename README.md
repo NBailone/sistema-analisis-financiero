@@ -93,12 +93,12 @@ La extracción de datos se realiza mediante scripts en Python que consumen estas
 - Cloudflare Tunnel
 
 ## 📁 Estructura del proyecto
-- src/ # Código Java (backend)
-- web/ # Vistas y recursos web
-- scripts/ # Scripts Python (extracción de datos)
-- etl/ # Transformaciones y jobs de Pentaho
-- database/ # Scripts SQL (estructura y procedimientos)
-- docs/images/ # Imágenes del sistema
+- web-app/ # Aplicación Java Web (Frontend y Backend)
+- etl/ # Procesos de Pentaho (Transformaciones y Jobs)
+- Scripts-data_extraction/ # Scripts Python (Extracción de datos de APIs)
+- db/ # Scripts SQL (Base de datos y estructura)
+- docs/Diagrams/ # Diagramas de clases y DER
+- docs/images/ # Imágenes y capturas del sistema
 
 ## 🌐 Despliegue
 El sistema fue desplegado inicialmente en un entorno local con XAMPP y Apache Tomcat.
