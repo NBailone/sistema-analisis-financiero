@@ -98,7 +98,7 @@ La extracción de datos se realiza mediante scripts en Python que consumen estas
 web-app/                 # Aplicación Java Web (Frontend y Backend)
 etl/                     # Procesos de Pentaho (Transformaciones y Jobs)
 Scripts-data_extraction/ # Scripts Python (Extracción de datos de APIs)
-db/                      # Scripts SQL (Base de datos y esquema)
+db/                      # Scripts SQL (Base de datos y procedimientos)
 docs/                    # Documentación del proyecto
   ├── Diagrams/          # Diagramas de clases y DER
   └── images/            # Imágenes y capturas del sistema
