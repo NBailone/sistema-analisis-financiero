@@ -94,7 +94,6 @@ La extracción de datos se realiza mediante scripts en Python que consumen estas
 
 
 ## 📂 Estructura del Proyecto
-
 ```bash
 web-app/                 # Aplicación Java Web (Frontend y Backend)
 etl/                     # Procesos de Pentaho (Transformaciones y Jobs)
@@ -103,7 +102,7 @@ db/                      # Scripts SQL (Base de datos y esquema)
 docs/                    # Documentación del proyecto
   ├── Diagrams/          # Diagramas de clases y DER
   └── images/            # Imágenes y capturas del sistema
-
+```
 
 ## 🌐 Despliegue
 El sistema fue desplegado inicialmente en un entorno local con XAMPP y Apache Tomcat.
