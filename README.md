@@ -146,22 +146,103 @@ Las 4 cotizaciones del dólar argentino en un solo lugar.
    └─ Pronósticos en "semáforo" (5 estrellas)
 ```
 
-### Pentaho ETL (El Motor)
+### Pentaho ETL (El Motor) ⚙️
 
-Pentaho orquesta todo el procesamiento de datos. Tiene:
+Pentaho orquesta **11 transformaciones** + **2 jobs** para procesar datos en tiempo real. Es el corazón del sistema.
 
-- **8 Transformaciones de Indicadores:** Una para cada indicador técnico
-- **5 Transformaciones de Pronósticos:** Una para cada panel de activos
-- **3 Jobs principales:**
-  - Extracción de datos en tiempo real
-  - Procesamiento de histórico del día
-  - Generación de pronósticos y cotización actual
+#### **Las 3 Transformaciones de Extracción:**
 
-#### Ejemplo: Cálculo de MACD
+**1. DESCRIPCIÓN DE ACTIVOS FINANCIEROS**
+- Mapea símbolos de las APIs al sistema
+- Genera tabla de referencia para pronósticos
 
-![Transformación MACD](docs/images/pentaho/MAPEO%20MACD%20.jpg)
+![Descripción Activos](docs/images/pentaho/DESCRIPCION%20ACTIIVOS%20FINANCIEROS.jpg)
 
-Pentaho compara medias móviles de 12 y 26 días, detecta cruces y genera señales.
+**2. EXTRACCIÓN DE DATOS REAL-TIME** ⏱️
+- Se ejecuta cada 5 minutos automáticamente
+- Consume 3 APIs: Invertir Online, DólarApi, CryptoCompare
+- Valida datos y elimina duplicados
+- Guarda en t_acciones, t_bonos, t_criptos, t_dolar
+
+![Extracción Real-Time](docs/images/pentaho/EXTRACCION%20DE%20DATOS%20REAL-TIME.jpg)
+
+**3. HISTÓRICO DEL DÍA**
+- Se ejecuta 1 vez al cierre de mercado (17:00hs)
+- Combina datos nuevos + histórico anterior
+- Elimina duplicados y outliers
+- Mantiene histórico de 1+ año para análisis técnico
+
+![Histórico del Día](docs/images/pentaho/HISTORICO%20DEL%20DIA.jpg)
+
+#### **Los 8 Indicadores Técnicos (Transformaciones Especializadas):**
+
+Cada indicador tiene su propia transformación que calcula fórmula matemática y genera señal (COMPRA/VENTA/NEUTRAL):
+
+**MACD** - Moving Average Convergence Divergence
+```
+Compara medias 12 y 26 días. Cruce = cambio de tendencia
+```
+![MACD](docs/images/pentaho/MAPEO%20MACD%20.jpg)
+
+**RSI** - Relative Strength Index  
+```
+Mide sobreventa (RSI < 30) y sobrecompra (RSI > 70)
+```
+![RSI](docs/images/pentaho/MAPEO%20RSI%20.jpg)
+
+**Media Móvil 20** - Cruces de promedios
+```
+Precio > MA20 = Tendencia alcista. Cruces MA20 vs MA40 = Señal
+```
+![Media Móvil](docs/images/pentaho/MAPEO%20MEDIA%20MOVIL%2020%20.jpg)
+
+**Estocástico** - Momentum en rango
+```
+< 20 = Sobreventa. > 80 = Sobrecompra. Señales de reversión
+```
+![Estocástico](docs/images/pentaho/MAPEO%20ESTOCASTICO%20.jpg)
+
+**CCI** - Commodity Channel Index
+```
+> +100 = Ciclo alcista. < -100 = Ciclo bajista
+```
+![CCI](docs/images/pentaho/MAPEO%20CCI%20.jpg)
+
+**DX y ATR** - Volatilidad
+```
+DX = Fuerza de tendencia. ATR = Magnitud de movimiento
+```
+![DX y ATR](docs/images/pentaho/MAPEO%20DX%20Y%20ATR%20.jpg)
+
+**ROC** - Rate of Change
+```
+Velocidad de cambio del precio. Positivo = Aceleración al alza
+```
+![ROC](docs/images/pentaho/MAPEO%20ROC%20.jpg)
+
+#### **Los 2 Jobs Principales (Orquestación):**
+
+**JOB 1: Cotizaciones en tiempo real** (Cada 5 minutos)
+- Ejecuta: Descripción → Extracción → Validación → Almacenamiento
+
+![Job Real-Time](docs/images/pentaho/JOB-Pronósticos%20y%20cotización%20actual%20.jpg)
+
+**JOB 2: Histórico del día** (Una vez al cierre - 17:00hs)
+- Ejecuta: Histórico → Limpieza → Almacenamiento → Respaldo
+
+![Job Histórico](docs/images/pentaho/JOB-Datos%20Históricos.jpg)
+
+#### **Los 7 Pronósticos Finales (Una transformación por panel):**
+
+Cada pronóstico reúne los 8 indicadores, vota y genera recomendación (1-5 estrellas):
+
+- **Panel General** ![Panel General](docs/images/pentaho/Pronóstco%20PanelGeneral.jpg)
+- **Merval** ![Merval](docs/images/pentaho/Pronóstco%20Merval.jpg)  
+- **Merval25** ![Merval25](docs/images/pentaho/Pronóstco%20Merval25.jpg)
+- **Merval Argentina** ![Merval Argentina](docs/images/pentaho/Pronóstco%20MervalArgentina.jpg)
+- **Burcap** ![Burcap](docs/images/pentaho/Pronóstico%20Burcap.jpg)
+- **CEDEARs** ![CEDEARs](docs/images/pentaho/Pronóstco%20Cedears.jpg)
+- **Criptomonedas** ![Criptos](docs/images/pentaho/Pronóstco%20Criptomonedas.jpg)
 
 ---
 
@@ -508,6 +589,8 @@ Los pronósticos son **herramientas de análisis**, no garantías:
 - ❌ No predice eventos exógenos (noticias, crisis, etc.)
 
 **Usar como:** Complemento a tu análisis fundamental, no como única fuente de decisión.
+
+---
 
 ---
 
